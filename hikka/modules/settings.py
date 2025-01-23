@@ -49,22 +49,20 @@ class CoreMod(loader.Module):
     async def hikkacmd(self, message: Message):
         await utils.answer_file(
             message,
-            "https://github.com/hikariatama/assets/raw/master/hikka_cat_banner.mp4",
+            "https://0x0.st/s/0zja9sXH9DXFmm-SZGA3Vg/8HbO.jpg#nsfw",
             self.strings("hikka").format(
                 (
                     utils.get_platform_emoji()
                     if self._client.hikka_me.premium and CUSTOM_EMOJIS
-                    else "🌘 <b>Hikka userbot</b>"
+                    else "<emoji document_id=5264913427041631157>🦋</emoji> <b>Limoka userbot</b>"
                 ),
                 *version.__version__,
                 utils.get_commit_url(),
                 f"{hikkatl.__version__} #{hikkatl.tl.alltlobjects.LAYER}",
                 (
-                    "<emoji document_id=5377399247589088543>🔥</emoji>"
-                    if self._client.pyro_proxy
-                    else "<emoji document_id=5418308381586759720>📴</emoji>"
+                    ""
                 ),
-                f"{hikkapyro.__version__} #{hikkapyro.raw.all.layer}",
+                f"<emoji document_id=5377399247589088543>🔥</emoji> <b>Developers:</b> thisLyomi.t.me, dev_die.t.me",
             )
             + (
                 ""

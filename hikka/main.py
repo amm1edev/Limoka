@@ -226,10 +226,6 @@ def gen_port(cfg: str = "port", no8080: bool = False) -> int:
 
 
 def parse_arguments() -> dict:
-    """
-    Parses the arguments
-    :returns: Dictionary with arguments
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--port",
@@ -300,9 +296,12 @@ def parse_arguments() -> dict:
         help="Do not print colorful output using ANSI escapes",
     )
     arguments = parser.parse_args()
+
+    if "serv00" in socket.gethostname():
+        arguments.disable_web = True
+
     logging.debug(arguments)
     return arguments
-
 
 class SuperList(list):
     """
@@ -783,9 +782,9 @@ class Hikka:
                 )
                 self.omit_log = True
 
-            await client.hikka_inline.bot.send_animation(
+            await client.hikka_inline.bot.send_photo(
                 logging.getLogger().handlers[0].get_logid_by_client(client.tg_id),
-                "https://0x0.st/8-4Z.mp4#nsfw",
+                "https://0x0.st/s/rVz8Yeuy-U-08A94s99Ksg/8Hbe.jpg",
                 caption=(
                     "🦋<b> Limoka {} started! </b>\n\n<b>☂️ Fork developer:</b> thislyomi.t.me \n<b>💜 GitHub commit SHA: <a"
                     ' href="https://github.com/amm1edev/Limoka/commit/{}">{}</a></b>\n🍇'    
